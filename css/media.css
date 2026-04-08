@@ -1,315 +1,739 @@
-/* Extra small devices (portrait phones, less than 576px)*/
-@media (max-width: 575.98px) { 
+/* ============================================================
+   RESPONSIVE STYLES — media.css
+   Breakpoints tested: 320px, 480px, 768px, 1024px, 1440px, 1920px
+   Loaded after style.css — all rules here override style.css.
+   ============================================================ */
 
+/* ------------------------------------------------------------------
+   1.  SHARED HELPERS — applied to every viewport
+   ------------------------------------------------------------------ */
+
+/* Plan image: always scale to container, never overflow */
+.plan img {
+    max-width: 100%;
+    height: auto;
 }
 
-/* Small devices (landscape phones, 576px and up)*/
-@media (min-width: 576px) and (max-width: 767.98px) { 
-
+/* Producer logos: scale down if container is narrow */
+.producent img {
+    max-width: 100%;
+    height: auto;
 }
 
-/* Medium devices (tablets, 768px and up)*/
-@media (min-width: 768px) and (max-width: 991.98px) { 
-    .logo_head img{
+/* Form: never wider than the viewport */
+form {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* ------------------------------------------------------------------
+   2.  MOBILE — portrait phones <= 575 px
+   ------------------------------------------------------------------ */
+@media (max-width: 575.98px) {
+
+    /* Background image (house photo): hide on mobile so the
+       blue panel takes the full screen without horizontal overflow */
+    .fon_right__img {
+        display: none;
+    }
+
+    /* Map iframe (contact page): full-width, reasonable height */
+    .fon_right__kont iframe {
+        margin-left: 0;
+        width: 100%;
+        height: 300px;
+    }
+
+    /* Logo */
+    .logo_head img {
+        width: 80px;
+        position: static;
+        margin-left: 0;
+    }
+
+    /* Navigation hamburger: push to the right with auto margin */
+    .navbar-light .navbar-toggler {
+        margin-left: auto;
+    }
+
+    /* Horizontal rule under header */
+    .hed_line_bod,
+    .hed_line_bod_kont {
+        margin-right: 10px;
+        margin-bottom: 0.5em;
+        margin-top: 0.5em;
+    }
+
+    /* Main text block */
+    .text_info h3 {
+        font-size: 17px;
+        margin-top: 4%;
+        margin-bottom: 2%;
+    }
+
+    .text_info p {
+        font-size: 13px;
+        line-height: 20px;
+        margin-left: 3%;
+    }
+
+    .text_info a {
+        font-size: 13px;
+    }
+
+    /* "Plan Domu" button: centered, full-ish width */
+    .btn_gal {
+        display: block;
+        width: 60%;
+        max-width: 200px;
+        margin: 8% auto 4%;
+    }
+
+    /* Contact form: use full available width */
+    form {
+        width: 100%;
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-top: 10px;
+    }
+
+    /* Modal: plan image */
+    .modal-body .plan {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .plan img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Modal: floor-plan thumbnail gallery
+       Change from position:absolute (overflows on mobile) to
+       in-flow block so it sits below the plan image. */
+    .galleria {
+        position: relative !important;
+        margin-top: 10px !important;
+        margin-left: 0 !important;
+        width: 100%;
+        height: auto;
+    }
+
+    .galleria h1 {
+        font-size: 16px;
+        margin-left: 0;
+        text-align: left;
+    }
+
+    .photo img {
+        width: 65px;
+        height: 65px;
+    }
+
+    /* Modal: equipment text — keep in normal flow */
+    .mod_text_2 {
+        position: relative;
+        margin-top: 8px;
+    }
+
+    /* Modal: header */
+    .modal-header {
+        margin-top: 0;
+    }
+
+    .modal-header .close {
+        margin-right: 0;
+        margin-top: 0;
+    }
+
+    /* Modal: text sizes */
+    .modal-body h3 { font-size: 16px; }
+    .modal-body h4 { font-size: 15px; }
+    .modal-body p  { font-size: 11px; line-height: 16px; }
+
+    .mod_text_3 h4 { padding-left: 10px; font-size: 15px; }
+    .mod_text_3 p  { margin-left: 10px; }
+}
+
+/* ------------------------------------------------------------------
+   3.  SMALL PHONES — 320 px and narrower
+   ------------------------------------------------------------------ */
+@media (max-width: 374.98px) {
+
+    .logo_head img {
+        width: 70px;
+    }
+
+    .menu {
+        margin-top: 8px;
+        margin-left: 0;
+    }
+
+    .text_info h3 { font-size: 15px; }
+    .text_info p  { font-size: 12px; }
+
+    .btn_gal {
+        width: 70%;
+        font-size: 14px;
+    }
+
+    .plan img {
+        width: 100%;
+        height: auto;
+    }
+
+    .modal-body p { font-size: 10px; }
+
+    /* Producer logos: very small, keep them visible */
+    .producent img {
+        width: 85px;
+        height: auto;
+        padding-left: 4px;
+        margin-left: 4px;
+    }
+}
+
+/* ------------------------------------------------------------------
+   4.  MEDIUM PHONES — 375 px to 575 px  (480 px included)
+   ------------------------------------------------------------------ */
+@media (min-width: 375px) and (max-width: 575.98px) {
+
+    .logo_head img {
+        width: 80px;
+    }
+
+    .text_info h3 { font-size: 17px; }
+    .text_info p  { font-size: 13px; }
+
+    .btn_gal { width: 50%; }
+
+    .plan img {
+        width: 100%;
+        height: auto;
+    }
+
+    .producent img {
+        width: 90px;
+        height: auto;
+        padding-left: 6px;
+        margin-left: 6px;
+    }
+}
+
+/* ------------------------------------------------------------------
+   5.  TABLETS / LARGE PHONES — 576 px to 767 px
+   ------------------------------------------------------------------ */
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+    /* Map iframe: full-width, moderate height */
+    .fon_right__kont iframe {
+        margin-left: 0;
+        width: 100%;
+        height: 380px;
+    }
+
+    /* Plan image */
+    .modal-body .plan {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .plan img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Thumbnail gallery: in-flow */
+    .galleria {
+        position: relative !important;
+        margin-top: 12px !important;
+        margin-left: 0 !important;
+        width: 100%;
+        height: auto;
+    }
+
+    .galleria h1 {
+        font-size: 18px;
+        margin-left: 0;
+    }
+
+    .photo img {
+        width: 70px;
+        height: 75px;
+    }
+
+    /* Equipment text block */
+    .mod_text_2 {
+        position: relative;
+        margin-top: 10px;
+    }
+
+    /* Modal header */
+    .modal-header {
+        margin-top: 0;
+    }
+
+    .modal-header .close {
+        margin-right: 0;
+        margin-top: 0;
+    }
+
+    /* Diagonal background gradient */
+    .fon_left {
+        background: -webkit-linear-gradient(174deg, transparent 20%, #6BA5CB 0);
+        background: -o-linear-gradient(174deg, transparent 20%, #6BA5CB 0);
+        background: linear-gradient(-84deg, transparent 20%, #6BA5CB 0);
+    }
+
+    /* Logo */
+    .logo_head img {
+        width: 90px;
+    }
+
+    /* Navigation */
+    .menu {
+        margin-top: 12px;
+        margin-left: 0;
+    }
+
+    .navbar-light .navbar-toggler {
+        margin-left: auto;
+    }
+
+    /* Text sizes */
+    .text_info h3 { font-size: 18px; }
+    .text_info p  { font-size: 14px; line-height: 22px; }
+
+    /* Button */
+    .btn_gal {
+        display: block;
+        width: 40%;
+        margin: 6% auto 3%;
+    }
+
+    /* Form */
+    form {
+        width: 90%;
+        padding-left: 5%;
+    }
+
+    /* Producer logos */
+    .producent img {
+        width: 90px;
+        height: auto;
+        padding-left: 6px;
+        margin-left: 8px;
+    }
+}
+
+/* ------------------------------------------------------------------
+   6.  TABLETS — 768 px to 991 px
+   ------------------------------------------------------------------ */
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+    /* Map iframe: right half, contained height */
+    .fon_right__kont iframe {
+        margin-left: 50%;
+        width: 50%;
+        height: 750px;
+    }
+
+    /* Logo */
+    .logo_head img {
         width: 95px;
         position: absolute;
         margin-left: -15px;
     }
-    .fon_left{
-        background:linear-gradient(-84deg, transparent 20% , #6BA5CB 0);
+
+    /* Diagonal background */
+    .fon_left {
+        background: -webkit-linear-gradient(174deg, transparent 20%, #6BA5CB 0);
+        background: -o-linear-gradient(174deg, transparent 20%, #6BA5CB 0);
+        background: linear-gradient(-84deg, transparent 20%, #6BA5CB 0);
     }
-    .menu{
-        margin-top: 18%;
-        left: 4.8%;
+
+    /* Navigation */
+    .menu {
+        margin-top: 18px;
+        margin-left: 4%;
     }
-    .menu ul li a{
-        font-size:10px;
-    }
-    .menu ul{
+
+    .menu ul {
+        display: -webkit-inline-box;
         margin-left: -74px;
+        margin-top: 10px;
     }
-    .menu ul li{
-        margin-left:1.2%;
+
+    .menu ul li {
+        margin-left: 10px;
+        -webkit-transform: skew(-16deg);
+        -ms-transform: skew(-16deg);
         transform: skew(-16deg);
     }
-    .hed_line_bod{
+
+    .menu ul li a { font-size: 10px; }
+
+    .navbar-light .navbar-toggler { margin-left: auto; }
+
+    /* Separator */
+    .hed_line_bod {
         margin-right: 12px;
+        margin-bottom: 1em;
     }
-    .text_info h3{
-        font-size: 19px;
-    }
-    .text_info p{
-        line-height: 20px;
-        font-size: 15px;
-    }
-    .btn_gal{
+
+    /* Text */
+    .text_info h3 { font-size: 18px; }
+    .text_info p  { font-size: 14px; line-height: 22px; }
+
+    /* Button */
+    .btn_gal {
         margin-top: 8%;
-        width: 34%;
-        height: 6%;
+        width: 40%;
     }
-  
- .modal-body h3{
- font-size: 20px;
- }
- .modal-body h4{
- font-size: 23px;
- }
- .modal-body p{
- font-size: 14px;
- }
-    .mod_text_3 h4 {
-        padding-left: 18px;
+
+    /* Plan image */
+    .plan img {
+        max-width: 100%;
+        height: auto;
     }
-    .mod_text_3 p{
-        margin-left: 18px;
+
+    .modal-body .plan {
+        margin-left: 5%;
     }
-    .galleria{
-        margin-top: -302px;
-        margin-left: 88%;
+
+    /* Thumbnail gallery */
+    .galleria {
+        margin-top: -220px;
+        margin-left: 85%;
     }
-    .photo img{
-        width: 85px;
-    height: 95px;
+
+    .galleria h1 { font-size: 20px; margin-left: 8px; }
+
+    .photo img {
+        width: 80px;
+        height: 85px;
     }
-    .galleria{
-        margin-top: -237px;
-        margin-left: 97%;
+
+    /* Modal */
+    .modal-body h3 { font-size: 18px; }
+    .modal-body h4 { font-size: 20px; }
+    .modal-body p  { font-size: 12px; }
+
+    .modal-header {
+        margin-top: -4%;
     }
-    .galleria h1{
-        font-size: 22px;
-  margin-left: 10px;
+
+    .modal-header .close {
+        margin-top: 0;
+        margin-right: -5%;
     }
-    .plan img{
-        height: 251px;
-        width: 500px;
-    }
-    .modal-body .plan{
-        margin-left: 32%;
-    }
-    .modal-header .close{
-        margin-top: -5px;
-        margin-right: -7.5%
- } 
 }
 
-/* Large devices (desktops, 992px and up)*/
-@media (min-width: 992px) and (max-width: 1199.98px) { 
-    .logo_head img{
+/* ------------------------------------------------------------------
+   7.  SMALL DESKTOPS — 992 px to 1199 px  (approx 1024 px)
+   ------------------------------------------------------------------ */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+    /* Map iframe */
+    .fon_right__kont iframe {
+        margin-left: 50%;
+        width: 50%;
+        height: 900px;
+    }
+
+    /* Logo */
+    .logo_head img {
         width: 110px;
         position: absolute;
         margin-left: -15px;
     }
-    .fon_left{
-        background:linear-gradient(-82deg, transparent 20% , #6BA5CB 0);
+
+    /* Diagonal background */
+    .fon_left {
+        background: -webkit-linear-gradient(172deg, transparent 20%, #6BA5CB 0);
+        background: -o-linear-gradient(172deg, transparent 20%, #6BA5CB 0);
+        background: linear-gradient(-82deg, transparent 20%, #6BA5CB 0);
     }
-    .menu ul li a{
-        font-size:11px;
-    }
-    .menu ul{
-        margin-left: -19px;
-    }
-    .menu ul li{
-        margin-left:1.2%;
-    }
-    .hed_line_bod{
+
+    /* Navigation */
+    .menu ul { margin-left: -88px; margin-top: 6px; }
+    .menu ul li { margin-left: 10px; }
+    .menu ul li a { font-size: 12px; }
+
+    .hed_line_bod {
         margin-right: 12px;
+        margin-bottom: 2em;
     }
-    .text_info h3{
-        font-size: 20px;
-    }
-    .text_info p{
-        line-height: 26px;
-        font-size: 14px;
-    }
-    .btn_gal{
+
+    /* Text */
+    .text_info h3 { font-size: 20px; }
+    .text_info p  { font-size: 14px; line-height: 26px; }
+
+    /* Button */
+    .btn_gal {
         margin-top: 8%;
         width: 34%;
-        height: 6%;
     }
-  
- .modal-body h3{
- font-size: 20px;
- }
- .modal-body h4{
- font-size: 23px;
- }
- .modal-body p{
- font-size: 14px;
- }
-    .mod_text_3 h4 {
-        padding-left: 18px;
+
+    /* Plan image */
+    .plan img {
+        max-width: 95%;
+        height: auto;
     }
-    .mod_text_3 p{
-        margin-left: 18px;
-    }
-    .galleria{
-        margin-top: -302px;
-        margin-left: 88%;
-    }
-    .photo img{
-        width: 85px;
-    height: 95px;
-    }
-    .galleria{
+
+    .modal-body .plan { margin-left: 2%; }
+
+    /* Thumbnail gallery */
+    .galleria {
         margin-top: -237px;
-        margin-left: 97%;
+        margin-left: 86%;
     }
-    .galleria h1{
-        font-size: 22px;
-  margin-left: 10px;
+
+    .galleria h1 { font-size: 20px; margin-left: 8px; }
+
+    .photo img {
+        width: 85px;
+        height: 90px;
     }
-    .plan img{
-        height: 251px;
-        width: 500px;
+
+    /* Modal */
+    .modal-body h3 { font-size: 20px; }
+    .modal-body h4 { font-size: 21px; }
+    .modal-body p  { font-size: 13px; }
+
+    .modal-header .close {
+        margin-top: 0;
+        margin-right: -5%;
     }
-    
-    .modal-body .plan{
-        margin-left: 32%;
-    }
-    .modal-header .close{
-        margin-top: -5px;
-        margin-right: -7.5%
- } 
 }
 
-/* Extra large devices (large desktops, 1200px and up)*/
-@media (min-width: 1200px) and (max-width: 1365.98px) { 
-    .logo_head img{
+/* ------------------------------------------------------------------
+   8.  MEDIUM DESKTOPS — 1200 px to 1365 px
+   ------------------------------------------------------------------ */
+@media (min-width: 1200px) and (max-width: 1365.98px) {
+
+    /* Map iframe */
+    .fon_right__kont iframe {
+        margin-left: 50%;
+        width: 50%;
+        height: 1100px;
+    }
+
+    /* Logo */
+    .logo_head img {
         width: 130px;
         position: absolute;
         margin-left: -15px;
     }
-    .fon_left{
-        background:linear-gradient(-80deg, transparent 20% , #6BA5CB 0);
+
+    /* Diagonal background */
+    .fon_left {
+        background: -webkit-linear-gradient(170deg, transparent 20%, #6BA5CB 0);
+        background: -o-linear-gradient(170deg, transparent 20%, #6BA5CB 0);
+        background: linear-gradient(-80deg, transparent 20%, #6BA5CB 0);
     }
-    .menu ul li a{
-        font-size:15px;
-    }
-    .menu ul{
-        margin-left: -20px;
-    }
-    .menu ul li{
-        margin-left:1.2%;
-    }
-    .hed_line_bod{
+
+    /* Navigation */
+    .menu ul { margin-left: -20px; }
+    .menu ul li { margin-left: 25px; }
+    .menu ul li a { font-size: 15px; }
+
+    .hed_line_bod {
         margin-right: 12px;
+        margin-bottom: 2em;
     }
-    .text_info h3{
-        font-size: 24px;
+
+    /* Text */
+    .text_info h3 { font-size: 24px; margin-top: 20px; }
+    .text_info p  { font-size: 18px; line-height: 26px; }
+
+    /* Button */
+    .btn_gal { margin-top: 65px; }
+
+    /* Plan image */
+    .plan img {
+        max-width: 100%;
+        height: auto;
     }
-    .text_info p{
-        line-height: 26px;
-        font-size: 16px;
-    }
-    .btn_gal{
-        margin-top: 8%;
-    }
-  
- .modal-body h3{
- font-size: 25px;
- }
- .modal-body h4{
- font-size: 23px;
- }
- .modal-body p{
- font-size: 16px;
- }
-    .mod_text_3 h4 {
-        padding-left: 18px;
-    }
-    .mod_text_3 p{
-        margin-left: 18px;
-    }
-    .galleria{
-        margin-top: -302px;
+
+    .modal-body .plan { margin-left: 5%; }
+
+    /* Thumbnail gallery */
+    .galleria {
+        margin-top: -343px;
         margin-left: 88%;
     }
-    .photo img{
+
+    .galleria h1 { font-size: 22px; margin-left: 10px; }
+
+    .photo img {
         width: 100px;
         height: 110px;
     }
-    .galleria h1{
-        font-size: 22px;
-  margin-left: 10px;
-  color:black;
+
+    /* Modal */
+    .modal-body h3 { font-size: 25px; }
+    .modal-body h4 { font-size: 23px; }
+    .modal-body p  { font-size: 16px; }
+
+    .modal-header .close {
+        margin-top: 10px;
+        margin-right: -4.5%;
     }
-    .plan img{
-        height: 270px;
-        width: 690px;
+}
+
+/* ------------------------------------------------------------------
+   9.  LARGE DESKTOPS — 1366 px to 1679 px  (approx 1440 px)
+   ------------------------------------------------------------------ */
+@media (min-width: 1366px) and (max-width: 1679.98px) {
+
+    /* Map iframe */
+    .fon_right__kont iframe {
+        margin-left: 50%;
+        width: 50%;
+        height: 1200px;
     }
-    .modal-body .plan{
-        margin-left: 31%;
+
+    /* Logo */
+    .logo_head img {
+        width: 150px;
+        position: absolute;
+        margin-left: -15px;
     }
-    .modal-header .close{
-     margin-top: 10px;
-     margin-right: -4.5%;
- } 
+
+    /* Navigation */
+    .menu ul { margin-left: -57px; margin-top: 22px; }
+    .menu ul li { margin-left: 15px; }
+    .menu ul li a { font-size: 16px; }
+
+    .hed_line_bod {
+        margin-right: 40px;
+        margin-top: 2em;
+        margin-bottom: 1em;
+    }
+
+    /* Text */
+    .text_info h3 { font-size: 22px; margin-top: 12px; margin-bottom: 10px; }
+    .text_info p  { font-size: 16px; line-height: 26px; margin-bottom: 0.3em; }
+
+    /* Plan image */
+    .plan img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .modal-body .plan { margin-left: 5%; }
+
+    /* Thumbnail gallery */
+    .galleria {
+        margin-top: -250px;
+        margin-left: 88%;
+    }
+
+    .galleria h1 { font-size: 22px; margin-left: 10px; }
+
+    .photo img {
+        width: 100px;
+        height: 110px;
+    }
+
+    /* Modal */
+    .modal-body h3 { font-size: 22px; }
+    .modal-body h4 { font-size: 22px; }
+    .modal-body p  { font-size: 16px; }
+
+    .modal-header .close { margin-top: 10px; }
 }
-/* Extra large devices (large desktops, 1300px and up)*/
-@media (min-width: 1366px) and (max-width: 1679.98px){
-   .logo_head img{
-       width: 150px;
-       position: absolute;
-       margin-left: -15px;
-   }
-   .menu ul li a{
-       font-size:18px;
-   }
-   .menu ul{
-       margin-left: -20px;
-   }
-   .menu ul li{
-       margin-left:1.2%;
-   }
-   .hed_line_bod{
-       margin-right: 33px;
-   }
-   .text_info h3{
-       font-size: 26px;
-   }
-   .text_info p{
-       line-height: 26px;
-       font-size: 18px;
-   }
-   .btn_gal{
-       margin-top: 5%;
-   }
- 
-.modal-body h3{
-font-size: 25px;
+
+/* ------------------------------------------------------------------
+   10.  FULL HD — 1680 px to 1919 px
+   ------------------------------------------------------------------ */
+@media (min-width: 1680px) and (max-width: 1919.98px) {
+
+    .fon_right__kont iframe {
+        margin-left: 50%;
+        width: 50%;
+        height: 1400px;
+    }
+
+    .logo_head img {
+        width: 160px;
+        position: absolute;
+        margin-left: -15px;
+    }
+
+    .menu ul li a { font-size: 18px; }
+    .menu ul { margin-left: -40px; margin-top: 20px; }
+    .menu ul li { margin-left: 18px; }
+
+    .hed_line_bod {
+        margin-right: 60px;
+        margin-top: 2em;
+        margin-bottom: 1.5em;
+    }
+
+    .text_info h3 { font-size: 26px; margin-top: 20px; }
+    .text_info p  { font-size: 18px; line-height: 28px; }
+
+    .btn_gal { margin-top: 5%; }
+
+    .plan img { max-width: 100%; height: auto; }
+    .modal-body .plan { margin-left: 5%; }
+
+    .galleria { margin-top: -270px; margin-left: 90%; }
+    .photo img { width: 105px; height: 115px; }
+    .galleria h1 { font-size: 24px; margin-left: 10px; }
+
+    .modal-body h3 { font-size: 26px; }
+    .modal-body h4 { font-size: 24px; }
+    .modal-body p  { font-size: 18px; }
+
+    .modal-header .close { margin-top: 10px; margin-right: -3%; }
 }
-.modal-body h4{
-font-size: 23px;
-}
-.modal-body p{
-font-size: 16px;
-}
-   .mod_text_3 h4 {
-       padding-left: 18px;
-   }
-   .mod_text_3 p{
-       margin-left: 18px;
-   }
-   .galleria{
-       margin-top: -250px;
-       margin-left: 98%
-   }
-   .photo img{
-       width: 100px;
-       height: 110px;
-   }
-   .galleria h1{
-       font-size: 22px;
- margin-left: 10px;
-   }
-   .plan img{
-       height: 270px;
-       width: 690px;
-   }
-   .modal-body .plan{
-       margin-left: 31%;
-   }
-   .modal-header .close{
-    margin-top: 10px;
-}
+
+/* ------------------------------------------------------------------
+   11.  4K / 2K SCREENS — 1920 px and above
+   ------------------------------------------------------------------ */
+@media (min-width: 1920px) {
+
+    .fon_right__kont iframe {
+        margin-left: 50%;
+        width: 50%;
+        height: 100vh;
+        min-height: 800px;
+    }
+
+    .logo_head img {
+        width: 180px;
+        position: absolute;
+        margin-left: -15px;
+    }
+
+    .menu ul li a { font-size: 20px; }
+    .menu ul { margin-left: -28px; margin-top: 22px; }
+    .menu ul li { margin-left: 18px; }
+
+    .hed_line_bod {
+        margin-right: 100px;
+        margin-top: 2em;
+        margin-bottom: 2em;
+    }
+
+    .text_info h3 { font-size: 30px; margin-top: 25px; }
+    .text_info p  { font-size: 22px; line-height: 32px; }
+
+    .btn_gal { margin-top: 4%; }
+
+    .plan img { max-width: 100%; height: auto; }
+    .modal-body .plan { margin-left: 5%; }
+
+    .galleria { margin-top: -260px; margin-left: 92%; }
+    .photo img { width: 110px; height: 120px; }
+    .galleria h1 { font-size: 26px; margin-left: 10px; }
+
+    .modal-body h3 { font-size: 28px; }
+    .modal-body h4 { font-size: 26px; }
+    .modal-body p  { font-size: 20px; }
+
+    .modal-header .close { margin-top: 10px; margin-right: -2%; }
 }

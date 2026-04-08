@@ -215,7 +215,7 @@ display: inline-block;
 }
 
 .mod_text_2{
-    position: absolute;
+    position: relative;
  margin-top: 5%;
  
 }
